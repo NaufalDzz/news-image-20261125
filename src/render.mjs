@@ -79,7 +79,7 @@ function runContentAudit() {
   const stats = getStats();
   const issues = [];
 
-  if (stories.length !== 39) issues.push(`Expected 39 stories, got ${stories.length}`);
+  if (stories.length !== 35) issues.push(`Expected 35 stories, got ${stories.length}`);
   const nums = stories.map((s) => s.num);
   for (let i = 1; i <= stories.length; i++) {
     if (nums[i - 1] !== i) issues.push(`Story numbering gap/mismatch at index ${i - 1}: got ${nums[i - 1]}`);
@@ -152,7 +152,7 @@ async function main() {
         const pageRect = page.getBoundingClientRect();
         const overflows = [];
         const selectors = [
-          '.kicker-bar', '.masthead', '.standfirst', '.reg-seg', '.kn-desc', '.tl-lbl',
+          '.kicker-bar', '.masthead', '.standfirst', '.reg-seg', '.kn-desc', '.utc-row',
           '.lead-hl', '.lead-deck', '.lead-foot', '.sec-hl', '.sec-sum',
           '.b-body', '.date-check', '.sources-foot'
         ];

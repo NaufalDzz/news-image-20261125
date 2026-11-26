@@ -1,4 +1,8 @@
-// Pixel-exact 1024x1024 HTML/CSS template for the Wednesday 25 November 2026 world-news broadsheet.
+// Pixel-exact 1024x1024 broadsheet HTML/CSS template for Wednesday 25 November 2026.
+// Optimized for 300px thumbnail legibility + 1024px editorial depth:
+// - 64px serif masthead + only 2 compact top strips (9-region bar + 5 big key numbers)
+// - 3 large hero leads (20px serif headlines) + 8 wide 2x4 illustrated secondaries (15px serif headlines)
+// - 24 crisp, spacious briefs (12+12 @ 10.6px, zero spreadsheet badge clutter) + world map + UTC timeline + Date Check
 
 import {
   BRIEFS,
@@ -49,7 +53,7 @@ export function buildHtml() {
   ).join('');
 
   const timelineHtml = TIMELINE.map(
-    (t) => `<div class="tl-item"><span class="tl-time">${esc(t.time)}</span><span class="tl-lbl">${esc(t.label)}</span></div>`
+    (t) => `<div class="utc-row"><span class="utc-t">${esc(t.time)}</span><span class="utc-l">${esc(t.label)}</span></div>`
   ).join('');
 
   const leadsHtml = LEADS.map(
@@ -70,7 +74,7 @@ export function buildHtml() {
 
   const secondariesHtml = SECONDARIES.map(
     (s) => `<article class="sec-card">
-      <div class="sec-art">${renderSecondaryIllustration(s.art, s.badge)}</div>
+      <div class="sec-art">${renderSecondaryIllustration(s.art)}</div>
       <div class="sec-meta">
         <span class="num-pill sm" style="background:${regionColorMap[s.region]};">${s.num}</span>
         <span class="sec-place">${esc(s.place)}</span>
@@ -81,23 +85,15 @@ export function buildHtml() {
     </article>`
   ).join('');
 
-  const leftBriefs = BRIEFS.slice(0, 13);
-  const rightBriefs = BRIEFS.slice(13);
-
-  const regionKeyHtml = REGIONS.filter((r) => r.id !== 'global')
-    .map(
-      (r) =>
-        `<span class="reg-key-item"><i class="rk-dot" style="background:${r.color};"></i>${esc(r.label)}</span>`
-    )
-    .join('');
+  const leftBriefs = BRIEFS.slice(0, 12);
+  const rightBriefs = BRIEFS.slice(12);
 
   const renderBriefList = (list) =>
     list
       .map(
         (b) => `<div class="brief-row">
           <span class="b-num" style="background:${regionColorMap[b.region]};">${b.num}</span>
-          <span class="b-body"><strong>${esc(b.place)}</strong> · ${esc(b.text)}</span>
-          <span class="ep-tag xs ${tagClass(b.tag)}">${esc(b.tag)}</span>
+          <span class="b-body"><strong>${esc(b.place)}</strong> — ${esc(b.text)} <span class="b-ep b-ep-${b.tag.toLowerCase()}">[${esc(b.tag)}]</span></span>
         </div>`
       )
       .join('');
@@ -115,8 +111,8 @@ export function buildHtml() {
     width: 1024px;
     height: 1024px;
     overflow: hidden;
-    background: #fbf8f2;
-    color: #14181f;
+    background: #fcfaf5;
+    color: #111827;
     font-family: 'Noto Sans', 'Nimbus Sans', 'DejaVu Sans', sans-serif;
     font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: antialiased;
@@ -124,10 +120,10 @@ export function buildHtml() {
   .page {
     width: 1024px;
     height: 1024px;
-    padding: 7px 12px 6px 12px;
+    padding: 7px 14px 6px 14px;
     display: flex;
     flex-direction: column;
-    gap: 4.5px;
+    gap: 5px;
   }
 
   /* Masthead */
@@ -135,38 +131,38 @@ export function buildHtml() {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #111827;
+    color: #f8fafc;
     font-size: 9.2px;
     font-weight: 800;
-    letter-spacing: 0.45px;
-    color: #334155;
-    border-bottom: 1.5px solid #14181f;
-    padding-bottom: 2px;
+    letter-spacing: 0.4px;
+    padding: 2.5px 8px;
   }
   .masthead {
     text-align: center;
     font-family: 'C059', 'Nimbus Roman', 'DejaVu Serif', Georgia, serif;
-    font-size: 62px;
+    font-size: 64px;
     font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: -1.2px;
+    line-height: 0.96;
+    letter-spacing: -1.3px;
     color: #0f172a;
-    margin-top: 1px;
+    margin-top: 2px;
   }
   .standfirst {
     text-align: center;
     font-family: 'C059', 'Nimbus Roman', 'DejaVu Serif', Georgia, serif;
     font-style: italic;
-    font-size: 13px;
+    font-size: 13.4px;
     font-weight: 700;
     color: #991b1b;
-    line-height: 1.15;
+    line-height: 1.16;
     white-space: nowrap;
   }
 
-  /* Proportional 9-region bar (guaranteed zero clipping) */
+  /* Strip 1: Proportional 9-region bar */
   .reg-bar {
     display: flex;
-    height: 16px;
+    height: 17px;
     gap: 2px;
     width: 100%;
   }
@@ -176,112 +172,64 @@ export function buildHtml() {
     justify-content: center;
     gap: 3px;
     color: #ffffff;
-    font-size: 8.2px;
+    font-size: 8.5px;
     font-weight: 800;
     letter-spacing: 0.15px;
     white-space: nowrap;
     padding: 0 4px;
   }
-  .reg-seg span {
-    opacity: 0.95;
-    font-weight: 900;
-  }
+  .reg-seg span { font-weight: 900; }
 
-  /* Key numbers + UTC strip */
+  /* Strip 2: 5 Big Key Numbers */
   .kn-strip {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 6px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
     border-top: 1px solid #d6cec0;
-    border-bottom: 1px solid #d6cec0;
-    padding: 2.5px 0;
+    border-bottom: 1.5px solid #14181f;
+    padding: 3.5px 0;
   }
   .kn-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
     border-right: 1px solid #e2dacb;
-    padding-right: 4px;
+    padding-right: 6px;
     min-width: 0;
   }
   .kn-item:last-child { border-right: none; padding-right: 0; }
   .kn-fig {
     font-family: 'C059', 'Nimbus Roman', 'DejaVu Serif', Georgia, serif;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 900;
     line-height: 1;
     flex-shrink: 0;
   }
   .kn-desc {
-    font-size: 8.5px;
-    font-weight: 600;
-    line-height: 1.14;
+    font-size: 9.6px;
+    font-weight: 700;
+    line-height: 1.15;
     color: #334155;
     min-width: 0;
-  }
-
-  .tl-strip {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: #f2ece1;
-    border: 1px solid #dfd6c7;
-    padding: 2px 6px;
-    height: 21px;
-  }
-  .tl-head {
-    font-size: 8px;
-    font-weight: 900;
-    color: #0f172a;
-    line-height: 1.05;
-    letter-spacing: 0.3px;
-    padding-right: 6px;
-    border-right: 1.5px solid #991b1b;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-  .tl-items {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 4px;
-    flex: 1;
-    min-width: 0;
-  }
-  .tl-item {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.06;
-    min-width: 0;
-  }
-  .tl-time {
-    font-size: 8.2px;
-    font-weight: 900;
-    color: #991b1b;
-  }
-  .tl-lbl {
-    font-size: 7.7px;
-    font-weight: 600;
-    color: #1e293b;
-    white-space: nowrap;
   }
 
   /* 3 Hero Leads */
   .leads-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
     border-bottom: 1.5px solid #14181f;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
   }
   .lead-card {
     display: flex;
     flex-direction: column;
-    gap: 2.5px;
+    gap: 3px;
     min-width: 0;
   }
   .lead-art {
     width: 100%;
-    height: 102px;
+    height: 108px;
     border: 1px solid #d5ccbd;
     overflow: hidden;
     background: #fff;
@@ -297,17 +245,17 @@ export function buildHtml() {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
     color: #fff;
-    font-size: 9px;
+    font-size: 9.5px;
     font-weight: 900;
     flex-shrink: 0;
   }
-  .num-pill.sm { width: 14px; height: 14px; font-size: 8px; }
+  .num-pill.sm { width: 15px; height: 15px; font-size: 8.6px; }
   .meta-place {
-    font-size: 8.8px;
+    font-size: 9.2px;
     font-weight: 800;
     letter-spacing: 0.25px;
     color: #475569;
@@ -315,15 +263,14 @@ export function buildHtml() {
   }
   .ep-tag {
     margin-left: auto;
-    font-size: 7.7px;
+    font-size: 7.8px;
     font-weight: 900;
-    padding: 1px 4px;
+    padding: 1px 4.5px;
     border-radius: 2px;
     letter-spacing: 0.2px;
     flex-shrink: 0;
   }
-  .ep-tag.sm { font-size: 7.4px; padding: 0.5px 3.5px; }
-  .ep-tag.xs { font-size: 7.0px; padding: 0.5px 3px; margin-left: 3px; }
+  .ep-tag.sm { font-size: 7.4px; padding: 0.5px 4px; }
   .tag-confirmed { background: #1e3a5f; color: #ffffff; }
   .tag-official { background: #0f766e; color: #ffffff; }
   .tag-reported { background: #e2e8f0; color: #1e293b; border: 1px solid #94a3b8; }
@@ -331,18 +278,19 @@ export function buildHtml() {
 
   .lead-hl {
     font-family: 'C059', 'Nimbus Roman', 'DejaVu Serif', Georgia, serif;
-    font-size: 18px;
+    font-size: 19.6px;
     font-weight: 900;
     line-height: 1.07;
     color: #0f172a;
   }
   .lead-deck {
-    font-size: 10.1px;
-    line-height: 1.23;
+    font-size: 10.6px;
+    line-height: 1.24;
     color: #1e293b;
   }
   .lead-foot {
-    font-size: 8.5px;
+    margin-top: auto;
+    font-size: 9.0px;
     line-height: 1.15;
     color: #334155;
     border-top: 1px solid #e4dccf;
@@ -356,25 +304,25 @@ export function buildHtml() {
   }
   .src-inline { color: #64748b; font-style: italic; }
 
-  /* 2x5 Secondary Cards */
+  /* 2x4 Wide Secondary Cards */
   .sec-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, auto);
-    column-gap: 7px;
-    row-gap: 5px;
+    column-gap: 10px;
+    row-gap: 6px;
     border-bottom: 1.5px solid #14181f;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
   }
   .sec-card {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 2.5px;
     min-width: 0;
   }
   .sec-art {
     width: 100%;
-    height: 50px;
+    height: 56px;
     border: 1px solid #d5ccbd;
     overflow: hidden;
     background: #fff;
@@ -383,11 +331,11 @@ export function buildHtml() {
   .sec-meta {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 4.5px;
     margin-top: 1px;
   }
   .sec-place {
-    font-size: 8.3px;
+    font-size: 8.8px;
     font-weight: 800;
     color: #475569;
     letter-spacing: 0.2px;
@@ -395,100 +343,98 @@ export function buildHtml() {
   }
   .sec-hl {
     font-family: 'C059', 'Nimbus Roman', 'DejaVu Serif', Georgia, serif;
-    font-size: 13.4px;
+    font-size: 15.0px;
     font-weight: 900;
-    line-height: 1.07;
+    line-height: 1.08;
     color: #0f172a;
   }
   .sec-sum {
-    font-size: 9.1px;
-    line-height: 1.17;
+    font-size: 10.0px;
+    line-height: 1.19;
     color: #273242;
   }
 
-  /* Bottom Map + 25 Briefs */
+  /* Lower Section: Map + UTC Timeline (left) | 24 Clean Spacious Briefs (right) */
   .lower-section {
     display: grid;
-    grid-template-columns: 262px 1fr;
-    gap: 9px;
+    grid-template-columns: 248px 1fr;
+    gap: 10px;
     flex: 1;
     min-height: 0;
   }
   .map-col {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
   }
   .sec-title {
-    font-size: 9.2px;
+    font-size: 9.5px;
     font-weight: 900;
     letter-spacing: 0.35px;
     color: #0f172a;
-    border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 1.5px;
+    border-bottom: 1.2px solid #cbd5e1;
+    padding-bottom: 2px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
   .sec-title span {
-    font-size: 8.1px;
+    font-size: 8.3px;
     font-weight: 600;
     color: #64748b;
     letter-spacing: 0;
   }
   .map-wrap {
-    width: 262px;
-    height: 134px;
+    width: 248px;
+    height: 118px;
   }
-  .map-legend {
-    font-size: 8.2px;
-    line-height: 1.24;
-    color: #334155;
+  .map-wrap svg { display: block; width: 100%; height: 100%; }
+  .utc-box {
+    background: #f4eee4;
+    border: 1px solid #dfd6c7;
+    padding: 3.5px 5.5px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-top: 2px;
+    gap: 2px;
   }
-  .reg-key {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px 7px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #e4dccf;
+  .utc-head {
+    font-size: 8.2px;
+    font-weight: 900;
+    color: #991b1b;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #e2d9ca;
+    padding-bottom: 1px;
   }
-  .reg-key-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    font-size: 7.4px;
-    font-weight: 700;
-    color: #334155;
-  }
-  .rk-dot {
-    width: 6.5px;
-    height: 6.5px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .legend-pills {
+  .utc-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 3px;
-    column-gap: 4px;
+    gap: 1.5px 5px;
   }
-  .legend-item {
-    display: inline-flex;
-    align-items: center;
+  .utc-row {
+    display: flex;
     gap: 3px;
-    font-size: 8.0px;
-    font-weight: 600;
-    color: #1e293b;
+    font-size: 7.9px;
+    line-height: 1.15;
+    white-space: nowrap;
   }
+  .utc-t { font-weight: 900; color: #0f172a; }
+  .utc-l { font-weight: 600; color: #334155; }
+
+  .ep-key {
+    font-size: 8.2px;
+    font-weight: 600;
+    color: #334155;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 6px;
+    line-height: 1.2;
+  }
+  .ep-key strong { font-weight: 900; }
 
   .briefs-col {
     display: flex;
     flex-direction: column;
-    gap: 2.5px;
+    gap: 3px;
     min-width: 0;
   }
   .briefs-two-col {
@@ -506,11 +452,11 @@ export function buildHtml() {
   }
   .brief-row {
     display: flex;
-    align-items: center;
-    gap: 3.5px;
-    font-size: 9.2px;
-    line-height: 1.12;
-    padding: 0.8px 0;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 9.8px;
+    line-height: 1.16;
+    padding: 1px 0;
     border-bottom: 1px solid #ede6da;
     min-width: 0;
   }
@@ -519,13 +465,15 @@ export function buildHtml() {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 14.5px;
-    height: 13px;
+    width: 15.5px;
+    height: 14px;
     border-radius: 2px;
     color: #ffffff;
-    font-size: 7.8px;
+    font-size: 8.2px;
     font-weight: 800;
     flex-shrink: 0;
+    position: relative;
+    top: -0.5px;
   }
   .b-body {
     flex: 1;
@@ -534,6 +482,14 @@ export function buildHtml() {
     white-space: nowrap;
   }
   .b-body strong { color: #0f172a; font-weight: 800; }
+  .b-ep {
+    font-size: 8.2px;
+    font-weight: 800;
+  }
+  .b-ep-c { color: #1e3a5f; }
+  .b-ep-o { color: #0f766e; }
+  .b-ep-r { color: #64748b; }
+  .b-ep-cl { color: #b45309; }
 
   /* Date Check Footer */
   .footer-wrap {
@@ -543,11 +499,11 @@ export function buildHtml() {
     margin-top: auto;
   }
   .date-check {
-    background: #fef6f4;
+    background: #fef5f3;
     border: 1px solid #d98276;
     border-left: 4px solid #991b1b;
-    padding: 3.5px 7px;
-    font-size: 8.8px;
+    padding: 4px 8px;
+    font-size: 9.2px;
     line-height: 1.24;
     color: #1f2937;
   }
@@ -556,15 +512,15 @@ export function buildHtml() {
     background: #991b1b;
     color: #ffffff;
     font-weight: 900;
-    font-size: 8.2px;
-    padding: 0.5px 4px;
+    font-size: 8.5px;
+    padding: 0.5px 4.5px;
     border-radius: 2px;
-    margin-right: 4px;
+    margin-right: 5px;
     letter-spacing: 0.3px;
   }
   .dc-lbl { font-weight: 800; color: #7f1d1d; }
   .sources-foot {
-    font-size: 7.9px;
+    font-size: 8.2px;
     color: #475569;
     text-align: center;
     white-space: nowrap;
@@ -585,27 +541,23 @@ export function buildHtml() {
     <div class="reg-bar">${regionBarHtml}</div>
     <div class="kn-strip">${keyNumbersHtml}</div>
 
-    <div class="tl-strip">
-      <div class="tl-head">THE DAY IN UTC</div>
-      <div class="tl-items">${timelineHtml}</div>
-    </div>
-
     <section class="leads-grid">${leadsHtml}</section>
 
     <section class="sec-grid">${secondariesHtml}</section>
 
     <section class="lower-section">
       <div class="map-col">
-        <div class="sec-title">WHERE IT HAPPENED <span>1–13 = illustrated · dots = briefs</span></div>
+        <div class="sec-title">WHERE IT HAPPENED <span>1–11 = pictured · dots = briefs</span></div>
         <div class="map-wrap">${mapSvg}</div>
-        <div class="map-legend">
-          <div class="reg-key">${regionKeyHtml}</div>
-          <div class="legend-pills">
-            <span class="legend-item"><span class="ep-tag xs tag-confirmed" style="margin:0;">C</span> Confirmed (2+ outlets)</span>
-            <span class="legend-item"><span class="ep-tag xs tag-official" style="margin:0;">O</span> Official record</span>
-            <span class="legend-item"><span class="ep-tag xs tag-reported" style="margin:0;">R</span> Wire/local report</span>
-            <span class="legend-item"><span class="ep-tag xs tag-claim" style="margin:0;">CL</span> One side's claim</span>
-          </div>
+        <div class="utc-box">
+          <div class="utc-head">THE DAY IN UTC — WEDNESDAY 25 NOV</div>
+          <div class="utc-grid">${timelineHtml}</div>
+        </div>
+        <div class="ep-key">
+          <span><strong style="color:#1e3a5f;">[C]</strong> Confirmed</span>
+          <span><strong style="color:#0f766e;">[O]</strong> Official</span>
+          <span><strong style="color:#64748b;">[R]</strong> Reported</span>
+          <span><strong style="color:#b45309;">[CL]</strong> One-sided claim</span>
         </div>
       </div>
       <div class="briefs-col">
