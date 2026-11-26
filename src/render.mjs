@@ -79,7 +79,9 @@ function runContentAudit() {
   const stats = getStats();
   const issues = [];
 
-  if (stories.length !== 35) issues.push(`Expected 35 stories, got ${stories.length}`);
+  if (stories.length !== 50) issues.push(`Expected 50 stories, got ${stories.length}`);
+  if (stats.totalRegions !== 10) issues.push(`Expected 10 regions, got ${stats.totalRegions}`);
+  if (stats.totalFields < 20) issues.push(`Expected >=20 fields, got ${stats.totalFields}`);
   const nums = stories.map((s) => s.num);
   for (let i = 1; i <= stories.length; i++) {
     if (nums[i - 1] !== i) issues.push(`Story numbering gap/mismatch at index ${i - 1}: got ${nums[i - 1]}`);
@@ -152,8 +154,8 @@ async function main() {
         const pageRect = page.getBoundingClientRect();
         const overflows = [];
         const selectors = [
-          '.kicker-bar', '.masthead', '.standfirst', '.reg-seg', '.kn-desc', '.utc-row',
-          '.lead-hl', '.lead-deck', '.lead-foot', '.sec-hl', '.sec-sum',
+          '.kicker-bar', '.masthead', '.standfirst', '.reg-seg', '.fields-line', '.kn-desc', '.utc-strip',
+          '.lead-hl', '.lead-deck', '.lead-foot', '.sec-place', '.sec-hl', '.sec-sum',
           '.b-body', '.date-check', '.sources-foot'
         ];
         for (const sel of selectors) {

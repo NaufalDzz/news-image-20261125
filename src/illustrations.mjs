@@ -1,136 +1,129 @@
-// Original, bright, iconic editorial vector illustrations & world map for Wednesday 25 November 2026.
-// Engineered for instant 300px thumbnail clarity: zero stamped dark corner stickers, crisp silhouettes, high-contrast figures.
+// Original high-contrast editorial vector illustrations & world map for Wednesday 25 November 2026.
+// Designed specifically for 300px thumbnail punch and 1024px editorial craft:
+// - 3 vivid hero lead plates (US tariffs cargo ship, dark AI chip-rout terminal, deep-space Tiangong docking)
+// - 10 crisp 2x5 secondary plates on warm, distinct palettes with integrated number/status callouts
+// - Collision-free world map with 13 numbered pins + brief dots
 
 export function renderLeadIllustration(art) {
   switch (art) {
-    case 'tiangong':
-      return `<svg viewBox="0 0 324 114" width="324" height="114" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shenzhou-24 liftoff and Tiangong docking">
+    case 'tariffs':
+      return `<svg viewBox="0 0 324 106" width="324" height="106" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="US proposed Section 301 tariffs up to 20 percent on 14 economies">
         <defs>
-          <linearGradient id="launchSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#cfe3f8"/>
-            <stop offset="100%" stop-color="#eef5fc"/>
-          </linearGradient>
-          <linearGradient id="orbitSky" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#1e3c68"/>
-            <stop offset="100%" stop-color="#152a4a"/>
+          <linearGradient id="tarSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#dceaf6"/>
+            <stop offset="100%" stop-color="#f2f7fb"/>
           </linearGradient>
         </defs>
-        <!-- Left half: bright daytime launchpad -->
-        <rect x="0" y="0" width="114" height="114" fill="url(#launchSky)"/>
-        <rect x="0" y="96" width="114" height="18" fill="#d9ccb8"/>
-        <path d="M14 96 L20 34 L32 34 L32 96 Z" fill="none" stroke="#64748b" stroke-width="1.6"/>
-        <path d="M14 52 L32 52 M14 68 L32 68 M14 82 L32 82 M20 34 L32 52 M32 34 L20 52 M16 52 L32 68" stroke="#64748b" stroke-width="1"/>
-        <!-- Exhaust clouds -->
-        <ellipse cx="64" cy="99" rx="38" ry="13" fill="#ffffff" opacity="0.95"/>
-        <ellipse cx="44" cy="100" rx="18" ry="8" fill="#fde68a" opacity="0.88"/>
-        <ellipse cx="82" cy="100" rx="18" ry="8" fill="#fde68a" opacity="0.88"/>
-        <polygon points="55,76 73,76 68,98 60,98" fill="#f97316"/>
-        <polygon points="58,76 70,76 66,93 62,93" fill="#fef08a"/>
-        <!-- Long March 2F rocket -->
-        <rect x="58" y="38" width="16" height="39" rx="2" fill="#ffffff" stroke="#1e293b" stroke-width="1.4"/>
-        <polygon points="58,38 66,22 74,38" fill="#dc2626"/>
-        <rect x="51" y="53" width="7" height="23" rx="2" fill="#f1f5f9" stroke="#475569" stroke-width="1.1"/>
-        <rect x="74" y="53" width="7" height="23" rx="2" fill="#f1f5f9" stroke="#475569" stroke-width="1.1"/>
-        <rect x="61" y="45" width="10" height="5" fill="#1d4ed8"/>
-        <text x="8" y="15" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="900" fill="#1b365d">00:18 UTC</text>
-
-        <!-- Clean cream divider -->
-        <rect x="114" y="0" width="3" height="114" fill="#fbf8f2"/>
-
-        <!-- Right half: Tiangong orbital docking -->
-        <rect x="117" y="0" width="207" height="114" fill="url(#orbitSky)"/>
-        <circle cx="136" cy="22" r="1.4" fill="#ffffff" opacity="0.85"/>
-        <circle cx="176" cy="18" r="1.2" fill="#ffffff" opacity="0.75"/>
-        <circle cx="298" cy="28" r="1.4" fill="#ffffff" opacity="0.85"/>
-        <circle cx="310" cy="54" r="1.1" fill="#ffffff" opacity="0.7"/>
-        <!-- Earth horizon curve -->
-        <path d="M117 98 Q220 74 324 100 L324 114 L117 114 Z" fill="#3b82f6" opacity="0.52"/>
-        <path d="M117 101 Q220 78 324 103" fill="none" stroke="#bae6fd" stroke-width="2.2"/>
-        <!-- Big clear Tiangong solar wings -->
-        <rect x="136" y="28" width="60" height="14" rx="1.5" fill="#60a5fa" stroke="#e0f2fe" stroke-width="1.1"/>
-        <rect x="136" y="72" width="60" height="14" rx="1.5" fill="#60a5fa" stroke="#e0f2fe" stroke-width="1.1"/>
-        <rect x="242" y="28" width="60" height="14" rx="1.5" fill="#60a5fa" stroke="#e0f2fe" stroke-width="1.1"/>
-        <rect x="242" y="72" width="60" height="14" rx="1.5" fill="#60a5fa" stroke="#e0f2fe" stroke-width="1.1"/>
-        <line x1="166" y1="28" x2="166" y2="42" stroke="#1e3a5f" stroke-width="1.1"/>
-        <line x1="166" y1="72" x2="166" y2="86" stroke="#1e3a5f" stroke-width="1.1"/>
-        <line x1="272" y1="28" x2="272" y2="42" stroke="#1e3a5f" stroke-width="1.1"/>
-        <line x1="272" y1="72" x2="272" y2="86" stroke="#1e3a5f" stroke-width="1.1"/>
-        <!-- Core module + docked Shenzhou-24 -->
-        <rect x="192" y="45" width="54" height="24" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
-        <rect x="208" y="37" width="22" height="40" rx="3" fill="#e2e8f0" stroke="#0f172a" stroke-width="1.3"/>
-        <circle cx="219" cy="57" r="5.5" fill="#0f172a"/>
-        <rect x="246" y="49" width="28" height="16" rx="6" fill="#fef3c7" stroke="#0f172a" stroke-width="1.3"/>
-        <!-- Pakistan & China flags top-right -->
-        <g transform="translate(254, 7)">
-          <rect x="0" y="0" width="28" height="16" rx="1.5" fill="#046a38" stroke="#ffffff" stroke-width="0.9"/>
-          <rect x="0" y="0" width="7.5" height="16" fill="#ffffff"/>
-          <circle cx="18" cy="8" r="4" fill="#ffffff"/>
-          <circle cx="19.5" cy="7.3" r="3.4" fill="#046a38"/>
-          <rect x="33" y="0" width="28" height="16" rx="1.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.9"/>
-          <circle cx="40" cy="5.6" r="2.4" fill="#facc15"/>
-          <circle cx="46" cy="4.0" r="0.9" fill="#facc15"/>
-          <circle cx="47.8" cy="6.8" r="0.9" fill="#facc15"/>
-          <circle cx="46.5" cy="9.8" r="0.9" fill="#facc15"/>
-        </g>
-        <text x="126" y="18" font-family="'Noto Sans', sans-serif" font-size="10.2" font-weight="900" fill="#e0f2fe">TIANGONG · 03:56 UTC</text>
+        <rect width="324" height="106" fill="url(#tarSky)"/>
+        <rect x="0" y="79" width="324" height="27" fill="#3b6e98"/>
+        <path d="M0 87 Q24 83 48 87 T96 87 T144 87 T192 87 T240 87 T288 87 T324 87" fill="none" stroke="#bae6fd" stroke-width="1.6" opacity="0.7"/>
+        <!-- Ship hull -->
+        <polygon points="10,64 256,64 242,88 26,88" fill="#182b44"/>
+        <polygon points="20,79 248,79 242,88 26,88" fill="#b91c1c"/>
+        <!-- Deckhouse / bridge -->
+        <rect x="206" y="34" width="30" height="30" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
+        <rect x="212" y="40" width="18" height="7" fill="#0284c7"/>
+        <rect x="218" y="23" width="7" height="11" fill="#475569"/>
+        <!-- Crisp container stacks -->
+        <rect x="24" y="45" width="44" height="19" rx="1.5" fill="#1e40af" stroke="#ffffff" stroke-width="1.1"/>
+        <rect x="70" y="45" width="44" height="19" rx="1.5" fill="#0f766e" stroke="#ffffff" stroke-width="1.1"/>
+        <rect x="116" y="45" width="44" height="19" rx="1.5" fill="#b45309" stroke="#ffffff" stroke-width="1.1"/>
+        <rect x="162" y="45" width="38" height="19" rx="1.5" fill="#6d28d9" stroke="#ffffff" stroke-width="1.1"/>
+        <rect x="34" y="25" width="54" height="19" rx="1.5" fill="#244c75" stroke="#ffffff" stroke-width="1.1"/>
+        <text x="61" y="38.5" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11.5" font-weight="900" fill="#ffffff">EU 15%</text>
+        <rect x="91" y="25" width="68" height="19" rx="1.5" fill="#991b1b" stroke="#ffffff" stroke-width="1.1"/>
+        <text x="125" y="38.5" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11.5" font-weight="900" fill="#ffffff">CHINA 20%</text>
+        <rect x="162" y="25" width="38" height="19" rx="1.5" fill="#0e7490" stroke="#ffffff" stroke-width="1.1"/>
+        <text x="181" y="38" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="900" fill="#ffffff">+12</text>
+        <!-- Giant crisp circular tariff stamp on right -->
+        <circle cx="282" cy="48" r="35" fill="#ffffff" stroke="#b91c1c" stroke-width="3.0"/>
+        <circle cx="282" cy="48" r="30.5" fill="none" stroke="#fca5a5" stroke-width="1.1" stroke-dasharray="3,2"/>
+        <text x="282" y="34" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.0" font-weight="900" fill="#991b1b">UP TO</text>
+        <text x="282" y="57" text-anchor="middle" font-family="'C059', Georgia, serif" font-size="23.5" font-weight="900" fill="#b91c1c">20%</text>
+        <text x="282" y="69" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="7.2" font-weight="900" fill="#334155">14 NATIONS</text>
+        <!-- Clean kicker inside sky -->
+        <text x="12" y="16" font-family="'Noto Sans', sans-serif" font-size="9.8" font-weight="900" fill="#1e293b">SECTION 301 · USTR PROPOSAL</text>
       </svg>`;
 
     case 'chiprout':
-      return `<svg viewBox="0 0 324 114" width="324" height="114" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asian chip stocks plunge chart">
-        <rect width="324" height="114" fill="#f7f1e8"/>
-        <!-- Left clean chart card -->
-        <rect x="6" y="6" width="166" height="102" rx="4" fill="#ffffff" stroke="#d6cec2" stroke-width="1.1"/>
-        <line x1="14" y1="28" x2="164" y2="28" stroke="#ece6dc" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="14" y1="50" x2="164" y2="50" stroke="#ece6dc" stroke-width="1" stroke-dasharray="3,2"/>
-        <line x1="14" y1="72" x2="164" y2="72" stroke="#ece6dc" stroke-width="1" stroke-dasharray="3,2"/>
-        <polygon points="16,18 44,24 70,21 96,42 120,54 142,68 162,82 162,86 16,86" fill="#fee2e2"/>
-        <polyline points="16,18 44,24 70,21 96,42 120,54 142,68 162,82" fill="none" stroke="#dc2626" stroke-width="4" stroke-linejoin="round"/>
-        <polygon points="162,82 151,78 158,69" fill="#dc2626"/>
-        <!-- Giant readable headline number inside chart -->
-        <text x="18" y="64" font-family="'C059', Georgia, serif" font-size="24" font-weight="900" fill="#b91c1c">−6.2%</text>
-        <text x="18" y="79" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="800" fill="#334155">KOSPI 4,697.51</text>
-        <text x="18" y="100" font-family="'Noto Sans', sans-serif" font-size="8.8" font-weight="800" fill="#991b1b">SELL-SIDECAR TRIGGERED</text>
-
-        <!-- Right clean ticker table -->
-        <rect x="178" y="6" width="140" height="102" rx="4" fill="#18273e"/>
-        <g font-family="'Noto Sans', sans-serif" font-weight="800">
-          <text x="188" y="25" font-size="11.2" fill="#e2e8f0">SK HYNIX</text>
-          <text x="309" y="25" text-anchor="end" font-size="12.5" fill="#f87171">−11.1%</text>
-          <line x1="186" y1="32" x2="310" y2="32" stroke="#334155" stroke-width="1"/>
-          <text x="188" y="49" font-size="11.2" fill="#e2e8f0">SAMSUNG</text>
-          <text x="309" y="49" text-anchor="end" font-size="12.5" fill="#f87171">−9.9%</text>
-          <line x1="186" y1="56" x2="310" y2="56" stroke="#334155" stroke-width="1"/>
-          <text x="188" y="73" font-size="11.2" fill="#e2e8f0">TAIEX</text>
-          <text x="309" y="73" text-anchor="end" font-size="12.5" fill="#fca5a5">−4.8%</text>
-          <line x1="186" y1="80" x2="310" y2="80" stroke="#334155" stroke-width="1"/>
-          <text x="188" y="97" font-size="11.2" fill="#e2e8f0">NIKKEI</text>
-          <text x="309" y="97" text-anchor="end" font-size="12.5" fill="#fca5a5">−2.8%</text>
+      return `<svg viewBox="0 0 324 106" width="324" height="106" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Asian chip stocks plunge trading board">
+        <rect width="324" height="106" fill="#131f33"/>
+        <!-- Subtle grid lines -->
+        <line x1="12" y1="26" x2="170" y2="26" stroke="#243552" stroke-width="1"/>
+        <line x1="12" y1="50" x2="170" y2="50" stroke="#243552" stroke-width="1"/>
+        <line x1="12" y1="74" x2="170" y2="74" stroke="#243552" stroke-width="1"/>
+        <!-- Microchip motif subtle in top-left -->
+        <rect x="18" y="36" width="34" height="34" rx="4" fill="#1e2f4a" stroke="#ef4444" stroke-width="1.8"/>
+        <path d="M26 30 V36 M35 30 V36 M44 30 V36 M26 70 V76 M35 70 V76 M44 70 V76 M12 44 H18 M12 53 H18 M12 62 H18 M52 44 H58 M52 53 H58 M52 62 H58" stroke="#f87171" stroke-width="1.6"/>
+        <text x="35" y="57" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="13" font-weight="900" fill="#fca5a5">AI</text>
+        <!-- Steep downward plunge line -->
+        <polygon points="14,18 46,24 72,22 100,45 128,59 166,83 166,94 14,94" fill="#dc2626" opacity="0.22"/>
+        <polyline points="14,18 46,24 72,22 100,45 128,59 166,83" fill="none" stroke="#ef4444" stroke-width="4" stroke-linejoin="round"/>
+        <polygon points="168,85 154,82 162,72" fill="#ef4444"/>
+        <text x="14" y="14" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="900" fill="#93c5fd">SELL-SIDECAR · 4,697.51</text>
+        <!-- Crisp vertical divider -->
+        <line x1="170" y1="9" x2="170" y2="97" stroke="#334155" stroke-width="1.2"/>
+        <!-- Giant high-contrast ticker table readable at 300px -->
+        <g font-family="'Noto Sans', sans-serif" font-weight="900">
+          <text x="178" y="25" font-size="11.2" fill="#cbd5e1">KOSPI</text>
+          <text x="315" y="26" text-anchor="end" font-size="16" fill="#ff6b6b">−6.2%</text>
+          <line x1="178" y1="33" x2="315" y2="33" stroke="#283a56" stroke-width="1"/>
+          <text x="178" y="51" font-size="11.0" fill="#cbd5e1">SK HYNIX</text>
+          <text x="315" y="52" text-anchor="end" font-size="15.5" fill="#ff6b6b">−11.1%</text>
+          <line x1="178" y1="59" x2="315" y2="59" stroke="#283a56" stroke-width="1"/>
+          <text x="178" y="77" font-size="11.0" fill="#cbd5e1">SAMSUNG</text>
+          <text x="315" y="78" text-anchor="end" font-size="15.5" fill="#ff6b6b">−9.9%</text>
+          <line x1="178" y1="84" x2="315" y2="84" stroke="#283a56" stroke-width="1"/>
+          <text x="178" y="99" font-size="9.0" fill="#93c5fd">TAIEX −4.8%</text>
+          <text x="315" y="99" text-anchor="end" font-size="9.0" fill="#93c5fd">NIKKEI −2.8%</text>
         </g>
       </svg>`;
 
-    case 'tariffs':
-      return `<svg viewBox="0 0 324 114" width="324" height="114" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="US proposed Section 301 tariffs on 14 economies">
-        <rect width="324" height="114" fill="#e5eff7"/>
-        <rect x="0" y="88" width="324" height="26" fill="#7fa8c9"/>
-        <path d="M0 96 Q28 91 56 96 T112 96 T168 96 T224 96 T280 96 T324 96" fill="none" stroke="#dbeafe" stroke-width="1.8"/>
-        <!-- Ship hull -->
-        <polygon points="14,72 302,72 286,96 30,96" fill="#233f5e"/>
-        <polygon points="24,87 293,87 286,96 30,96" fill="#b91c1c"/>
-        <!-- Bridge -->
-        <rect x="256" y="34" width="32" height="38" fill="#ffffff" stroke="#1e293b" stroke-width="1.3"/>
-        <rect x="262" y="42" width="20" height="8" fill="#38bdf8"/>
-        <rect x="269" y="23" width="7" height="11" fill="#475569"/>
-        <!-- Giant crisp tariff containers readable at 300px -->
-        <rect x="24" y="46" width="110" height="25" rx="2.5" fill="#b45309" stroke="#ffffff" stroke-width="1.3"/>
-        <text x="79" y="63" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="900" fill="#ffffff">VIETNAM 35%</text>
-        <rect x="137" y="46" width="112" height="25" rx="2.5" fill="#0e7490" stroke="#ffffff" stroke-width="1.3"/>
-        <text x="193" y="63" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="900" fill="#ffffff">INDIA 25%</text>
-        <rect x="38" y="19" width="102" height="25" rx="2.5" fill="#991b1b" stroke="#ffffff" stroke-width="1.3"/>
-        <text x="89" y="36" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="12" font-weight="900" fill="#ffffff">CHINA 20%</text>
-        <rect x="143" y="19" width="106" height="25" rx="2.5" fill="#244c75" stroke="#ffffff" stroke-width="1.3"/>
-        <text x="196" y="36" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11.2" font-weight="900" fill="#ffffff">EU · JP · KR 15%</text>
-        <!-- Crisp top-left callout -->
-        <text x="12" y="14" font-family="'Noto Sans', sans-serif" font-size="10.2" font-weight="900" fill="#1e293b">14 ECONOMIES · SEC. 301</text>
+    case 'tiangong':
+      return `<svg viewBox="0 0 324 106" width="324" height="106" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shenzhou-24 docking at China Tiangong space station with Pakistani astronaut">
+        <defs>
+          <linearGradient id="spaceDeep" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0b1836"/>
+            <stop offset="100%" stop-color="#19345e"/>
+          </linearGradient>
+        </defs>
+        <rect width="324" height="106" fill="url(#spaceDeep)"/>
+        <!-- Stars -->
+        <circle cx="24" cy="24" r="1.4" fill="#ffffff" opacity="0.85"/>
+        <circle cx="72" cy="15" r="1.2" fill="#ffffff" opacity="0.7"/>
+        <circle cx="154" cy="16" r="1.3" fill="#ffffff" opacity="0.8"/>
+        <circle cx="242" cy="22" r="1.2" fill="#ffffff" opacity="0.75"/>
+        <circle cx="304" cy="18" r="1.4" fill="#ffffff" opacity="0.85"/>
+        <!-- Luminous Earth limb -->
+        <path d="M0 88 Q162 60 324 90 L324 106 L0 106 Z" fill="#1d4ed8" opacity="0.55"/>
+        <path d="M0 91 Q162 64 324 93" fill="none" stroke="#93c5fd" stroke-width="2.6"/>
+        <!-- Giant crisp Tiangong solar wings -->
+        <rect x="20" y="34" width="84" height="14" rx="1.5" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1.2"/>
+        <rect x="20" y="58" width="84" height="14" rx="1.5" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1.2"/>
+        <rect x="220" y="34" width="84" height="14" rx="1.5" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1.2"/>
+        <rect x="220" y="58" width="84" height="14" rx="1.5" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1.2"/>
+        <path d="M48 34 V48 M76 34 V48 M48 58 V72 M76 58 V72 M248 34 V48 M276 34 V48 M248 58 V72 M276 58 V72" stroke="#0c4a6e" stroke-width="1.2"/>
+        <!-- Core T-module + docked Shenzhou-24 -->
+        <rect x="104" y="42" width="116" height="22" rx="4" fill="#f8fafc" stroke="#0f172a" stroke-width="1.6"/>
+        <rect x="148" y="25" width="28" height="56" rx="4" fill="#e2e8f0" stroke="#0f172a" stroke-width="1.5"/>
+        <circle cx="162" cy="53" r="6" fill="#0f172a"/>
+        <rect x="150" y="75" width="24" height="16" rx="5" fill="#fde68a" stroke="#0f172a" stroke-width="1.3"/>
+        <!-- Crisp Pakistan & China flags top-left -->
+        <g transform="translate(12, 8)">
+          <rect x="0" y="0" width="32" height="19" rx="1.5" fill="#046a38" stroke="#ffffff" stroke-width="1"/>
+          <rect x="0" y="0" width="8.5" height="19" fill="#ffffff"/>
+          <circle cx="20.5" cy="9.5" r="4.6" fill="#ffffff"/>
+          <circle cx="22.3" cy="8.7" r="3.9" fill="#046a38"/>
+          <rect x="38" y="0" width="32" height="19" rx="1.5" fill="#dc2626" stroke="#ffffff" stroke-width="1"/>
+          <circle cx="46" cy="6.6" r="2.7" fill="#facc15"/>
+          <circle cx="53" cy="4.6" r="1" fill="#facc15"/>
+          <circle cx="55" cy="7.8" r="1" fill="#facc15"/>
+          <circle cx="53.5" cy="11.2" r="1" fill="#facc15"/>
+        </g>
+        <!-- Crisp bright labels -->
+        <text x="314" y="21" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="11.5" font-weight="900" fill="#ffffff">SHENZHOU-24</text>
+        <text x="14" y="100" font-family="'Noto Sans', sans-serif" font-size="10.2" font-weight="900" fill="#e0f2fe">03:56 UTC DOCKING</text>
+        <text x="312" y="100" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="11" font-weight="900" fill="#fef08a">TIANGONG</text>
       </svg>`;
 
     default:
@@ -138,197 +131,197 @@ export function renderLeadIllustration(art) {
   }
 }
 
-export function renderSecondaryIllustration(art) {
-  // Clean 242x60 full-bleed vector scenes on distinct bright pastel palettes — zero dark corner sticker clutter!
-  let inner = '';
+export function renderSecondaryIllustration(art, num, pill, regionColor) {
+  // Crisp 192x56 full-bleed vector scenes with integrated bottom-left number + bold high-contrast stat pill
+  let scene = '';
   switch (art) {
-    case 'cairo':
-      inner = `
-        <rect width="242" height="60" fill="#f9ece3"/>
-        <!-- Elevated Cairo Ring Road highway -->
-        <rect x="0" y="42" width="242" height="10" fill="#64748b"/>
-        <line x1="8" y1="47" x2="234" y2="47" stroke="#f8fafc" stroke-width="1.3" stroke-dasharray="10,8"/>
-        <rect x="26" y="52" width="12" height="8" fill="#94a3b8"/>
-        <rect x="118" y="52" width="12" height="8" fill="#94a3b8"/>
-        <rect x="202" y="52" width="12" height="8" fill="#94a3b8"/>
-        <!-- Tanker truck + blaze -->
-        <rect x="34" y="26" width="66" height="15" rx="6" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.2"/>
-        <rect x="100" y="29" width="18" height="12" rx="2" fill="#334155"/>
-        <circle cx="46" cy="42" r="4" fill="#0f172a"/>
-        <circle cx="90" cy="42" r="4" fill="#0f172a"/>
-        <circle cx="111" cy="42" r="4" fill="#0f172a"/>
-        <!-- Flame & smoke plume -->
-        <circle cx="76" cy="14" r="11" fill="#64748b" opacity="0.65"/>
-        <circle cx="92" cy="10" r="12" fill="#475569" opacity="0.58"/>
-        <path d="M58 27 Q66 8 76 24 Q84 10 92 27 Z" fill="#f97316"/>
-        <path d="M64 27 Q71 15 78 27 Z" fill="#fef08a"/>
-        <!-- Crisp integrated figure card -->
-        <rect x="140" y="8" width="92" height="30" rx="4" fill="#ffffff" stroke="#b91c1c" stroke-width="1.5"/>
-        <text x="186" y="25" text-anchor="middle" font-family="'C059', Georgia, serif" font-size="16" font-weight="900" fill="#991b1b">31+ DEAD</text>
-        <text x="186" y="35" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="8.4" font-weight="800" fill="#475569">21 INJURED · GIZA</text>
+    case 'ukraine':
+      scene = `
+        <rect width="192" height="56" fill="#1e2d42"/>
+        <rect x="0" y="46" width="192" height="10" fill="#334155"/>
+        <path d="M10 46 Q14 28 12 12 L34 12 Q32 28 36 46 Z" fill="#64748b" stroke="#94a3b8" stroke-width="1.2"/>
+        <path d="M126 46 L140 8 L154 46 M122 20 L158 20 M126 32 L154 32" fill="none" stroke="#cbd5e1" stroke-width="2.1"/>
+        <polygon points="172,7 161,24 171,24 164,41 184,20 173,20" fill="#facc15"/>
+        <circle cx="72" cy="14" r="1.4" fill="#fbbf24"/>
+        <circle cx="96" cy="20" r="1.4" fill="#fbbf24"/>
       `;
       break;
 
-    case 'hodeidah':
-      inner = `
-        <rect width="242" height="60" fill="#f7eadb"/>
-        <rect x="0" y="45" width="242" height="15" fill="#477aa3"/>
-        <rect x="10" y="36" width="160" height="9" fill="#b69f84"/>
-        <!-- Red Sea port cranes -->
-        <path d="M24 36 V14 H62 M30 36 L48 14" fill="none" stroke="#991b1b" stroke-width="2.6"/>
-        <path d="M84 36 V14 H122 M90 36 L108 14" fill="none" stroke="#991b1b" stroke-width="2.6"/>
-        <!-- Strike blast + plume -->
-        <circle cx="152" cy="22" r="12" fill="#64748b" opacity="0.7"/>
-        <circle cx="168" cy="13" r="13" fill="#475569" opacity="0.62"/>
-        <circle cx="146" cy="31" r="7.5" fill="#ea580c"/>
-        <circle cx="154" cy="32" r="5.5" fill="#facc15"/>
-        <!-- Jet silhouette -->
-        <polygon points="196,12 228,18 202,22 208,16" fill="#1e293b"/>
-        <line x1="176" y1="22" x2="195" y2="17" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3,2"/>
+    case 'rastanura':
+      scene = `
+        <rect width="192" height="56" fill="#f7e6cf"/>
+        <rect x="0" y="42" width="192" height="14" fill="#c89e6b"/>
+        <!-- Oil refinery storage tanks + flare -->
+        <rect x="114" y="25" width="26" height="17" rx="2" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
+        <rect x="146" y="25" width="26" height="17" rx="2" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
+        <rect x="176" y="13" width="4" height="29" fill="#475569"/>
+        <polygon points="174,13 178,5 182,13" fill="#ea580c"/>
+        <!-- Intercepted drones bursts -->
+        <g stroke="#b91c1c" stroke-width="2">
+          <line x1="36" y1="15" x2="48" y2="15"/><line x1="42" y1="9" x2="42" y2="21"/>
+          <line x1="74" y1="12" x2="86" y2="12"/><line x1="80" y1="6" x2="80" y2="18"/>
+          <line x1="108" y1="16" x2="118" y2="16"/><line x1="113" y1="11" x2="113" y2="21"/>
+        </g>
+        <path d="M126 42 Q98 28 82 14" fill="none" stroke="#991b1b" stroke-width="1.4" stroke-dasharray="3,2"/>
       `;
       break;
 
     case 'ofgem':
-      inner = `
-        <rect width="242" height="60" fill="#f5efe3"/>
-        <!-- British terraced house + gas flame -->
-        <polygon points="16,28 46,10 76,28" fill="#b45309"/>
-        <rect x="22" y="28" width="48" height="26" fill="#ffffff" stroke="#b45309" stroke-width="1.5"/>
-        <path d="M46 33 C51 38 53 44 46 49 C39 44 41 38 46 33 Z" fill="#ea580c"/>
-        <path d="M46 39 C48.5 42 49 45 46 47 C43 45 43.5 42 46 39 Z" fill="#fef08a"/>
-        <!-- Huge clear UK bill graphic -->
-        <rect x="88" y="7" width="144" height="46" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
-        <text x="98" y="21" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="800" fill="#64748b" text-decoration="line-through">£1,723 / YR</text>
-        <text x="224" y="21" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="11.5" font-weight="900" fill="#b45309">+26%</text>
-        <text x="98" y="45" font-family="'C059', Georgia, serif" font-size="22" font-weight="900" fill="#b91c1c">£2,166</text>
-        <text x="176" y="44" font-family="'Noto Sans', sans-serif" font-size="10.5" font-weight="800" fill="#475569">/ YR</text>
-      `;
-      break;
-
-    case 'bogor':
-      inner = `
-        <rect width="242" height="60" fill="#e8eef3"/>
-        <!-- Rain streaks -->
-        <path d="M24 6 L19 18 M54 6 L49 18 M84 6 L79 18 M114 6 L109 18 M144 6 L139 18" stroke="#3b82f6" stroke-width="1.8"/>
-        <!-- Earth cross-section + flooded mine shafts -->
-        <rect x="0" y="24" width="242" height="36" fill="#8b6b4a"/>
-        <rect x="0" y="20" width="242" height="6" fill="#4d7c0f"/>
-        <rect x="34" y="24" width="26" height="36" fill="#2563eb"/>
-        <rect x="100" y="24" width="26" height="36" fill="#2563eb"/>
-        <rect x="34" y="42" width="92" height="14" fill="#1d4ed8"/>
-        <!-- Clear rescue figure card -->
-        <rect x="142" y="9" width="90" height="42" rx="4" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.4"/>
-        <text x="187" y="26" text-anchor="middle" font-family="'C059', Georgia, serif" font-size="15.5" font-weight="900" fill="#991b1b">9 DEAD</text>
-        <text x="187" y="40" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="10" font-weight="900" fill="#1e3a5f">17 TRAPPED</text>
-        <text x="187" y="49" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="7.6" font-weight="700" fill="#64748b">100m SHAFTS</text>
-      `;
-      break;
-
-    case 'gaza':
-      inner = `
-        <rect width="242" height="60" fill="#f3ebe2"/>
-        <!-- Coastal skyline & horizon -->
-        <rect x="0" y="48" width="242" height="12" fill="#3b6e94"/>
-        <rect x="18" y="28" width="24" height="20" fill="#cbd5e1" stroke="#64748b" stroke-width="1"/>
-        <rect x="46" y="22" width="28" height="26" fill="#d6d3d1" stroke="#64748b" stroke-width="1"/>
-        <rect x="78" y="30" width="24" height="18" fill="#cbd5e1" stroke="#64748b" stroke-width="1"/>
-        <rect x="146" y="26" width="28" height="22" fill="#d6d3d1" stroke="#64748b" stroke-width="1"/>
-        <rect x="180" y="32" width="26" height="16" fill="#cbd5e1" stroke="#64748b" stroke-width="1"/>
-        <!-- Impact plume -->
-        <circle cx="122" cy="24" r="13" fill="#475569" opacity="0.72"/>
-        <circle cx="132" cy="14" r="11" fill="#64748b" opacity="0.62"/>
-        <polygon points="112,48 122,28 134,48" fill="#ea580c"/>
-        <polygon points="117,48 123,35 129,48" fill="#facc15"/>
-        <text x="232" y="18" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="900" fill="#7c2d12">SHATI CAMP</text>
+      scene = `
+        <rect width="192" height="56" fill="#f4efe4"/>
+        <!-- Blue gas flame -->
+        <path d="M28 5 C36 14 39 23 28 32 C17 23 20 14 28 5 Z" fill="#2563eb"/>
+        <path d="M28 15 C31.5 19 32.5 24 28 28 C23.5 24 24.5 19 28 15 Z" fill="#93c5fd"/>
+        <!-- Crisp energy bill card cleanly clear of bottom-left pill -->
+        <rect x="74" y="5" width="112" height="46" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.3"/>
+        <text x="81" y="16" font-family="'Noto Sans', sans-serif" font-size="7.8" font-weight="800" fill="#64748b">ENERGY BILL</text>
+        <text x="180" y="16" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="8.0" font-weight="800" fill="#94a3b8" text-decoration="line-through">£1,723</text>
+        <text x="130" y="42" text-anchor="middle" font-family="'C059', Georgia, serif" font-size="22.5" font-weight="900" fill="#b91c1c">£2,166</text>
       `;
       break;
 
     case 'solomons':
-      inner = `
-        <rect width="242" height="60" fill="#ddf0f5"/>
-        <rect x="0" y="44" width="242" height="16" fill="#256d85"/>
-        <!-- Pacific island + palm -->
-        <ellipse cx="42" cy="46" rx="32" ry="7" fill="#65a30d"/>
-        <path d="M36 43 Q32 28 38 18 M38 18 Q24 16 20 24 M38 18 Q50 15 56 23" fill="none" stroke="#15803d" stroke-width="2.4"/>
-        <!-- Clean Treaty document -->
-        <rect x="86" y="7" width="84" height="46" rx="3.5" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.4"/>
-        <text x="128" y="20" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.2" font-weight="900" fill="#1e3a5f">NO FOREIGN</text>
-        <text x="128" y="31" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.2" font-weight="900" fill="#1e3a5f">BASES</text>
-        <line x1="96" y1="38" x2="146" y2="38" stroke="#94a3b8" stroke-width="1.6"/>
-        <circle cx="156" cy="41" r="6.5" fill="#0e7490"/>
-        <path d="M153 41 L155.3 43.5 L159.5 38.5" fill="none" stroke="#ffffff" stroke-width="1.7"/>
-        <!-- AU & SB flags -->
-        <rect x="184" y="10" width="46" height="18" rx="2" fill="#1e3a8a" stroke="#ffffff" stroke-width="0.9"/>
-        <circle cx="217" cy="19" r="3" fill="#ffffff"/>
-        <rect x="184" y="33" width="46" height="18" rx="2" fill="#0369a1" stroke="#ffffff" stroke-width="0.9"/>
-        <polygon points="184,51 230,33 230,51" fill="#15803d"/>
-        <line x1="184" y1="51" x2="230" y2="33" stroke="#facc15" stroke-width="2.6"/>
+      scene = `
+        <rect width="192" height="56" fill="#d9eef5"/>
+        <rect x="0" y="38" width="192" height="18" fill="#1d5f78"/>
+        <!-- Australia & Solomon Islands flags -->
+        <rect x="16" y="7" width="48" height="24" rx="2" fill="#1e3a8a" stroke="#ffffff" stroke-width="1"/>
+        <circle cx="50" cy="19" r="3.4" fill="#ffffff"/>
+        <circle cx="28" cy="22" r="2.2" fill="#ffffff"/>
+        <rect x="74" y="7" width="48" height="24" rx="2" fill="#0369a1" stroke="#ffffff" stroke-width="1"/>
+        <polygon points="74,31 122,7 122,31" fill="#15803d"/>
+        <line x1="74" y1="31" x2="122" y2="7" stroke="#facc15" stroke-width="2.6"/>
+        <!-- Treaty seal on right -->
+        <rect x="134" y="7" width="48" height="36" rx="3" fill="#ffffff" stroke="#1e3a5f" stroke-width="1.3"/>
+        <line x1="141" y1="15" x2="175" y2="15" stroke="#94a3b8" stroke-width="1.6"/>
+        <line x1="141" y1="22" x2="170" y2="22" stroke="#94a3b8" stroke-width="1.6"/>
+        <circle cx="166" cy="33" r="6" fill="#0f766e"/>
+        <path d="M163 33 L165.2 35.3 L169.5 30.8" fill="none" stroke="#ffffff" stroke-width="1.6"/>
       `;
       break;
 
     case 'dhaka':
-      inner = `
-        <rect width="242" height="60" fill="#ecf6ef"/>
-        <!-- Sewing machine silhouette -->
-        <rect x="16" y="45" width="76" height="9" rx="2" fill="#1b634b"/>
-        <path d="M78 45 V24 H32 V35 H44" fill="none" stroke="#1b634b" stroke-width="6.5" stroke-linejoin="round"/>
-        <line x1="32" y1="35" x2="32" y2="44" stroke="#0f172a" stroke-width="2"/>
-        <!-- Clean wage jump bars -->
-        <rect x="112" y="36" width="44" height="17" rx="2.5" fill="#d97706"/>
-        <text x="134" y="32" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="800" fill="#92400e">12.5k</text>
-        <rect x="168" y="18" width="58" height="35" rx="2.5" fill="#15803d"/>
-        <text x="197" y="14" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11.5" font-weight="900" fill="#15803d">+36%</text>
-        <text x="197" y="40" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11" font-weight="900" fill="#ffffff">Tk 17k</text>
+      scene = `
+        <rect width="192" height="56" fill="#ebf6ee"/>
+        <!-- Sewing machine silhouette above pill -->
+        <rect x="14" y="25" width="54" height="6.5" rx="1.5" fill="#1b634b"/>
+        <path d="M58 25 V11 H25 V19 H33" fill="none" stroke="#1b634b" stroke-width="4.8" stroke-linejoin="round"/>
+        <!-- Wage jump bars cleanly clear of TK 17,000 pill -->
+        <rect x="104" y="28" width="32" height="20" rx="2" fill="#d97706"/>
+        <text x="120" y="24" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="8.4" font-weight="900" fill="#92400e">12.5k</text>
+        <rect x="142" y="14" width="44" height="34" rx="2" fill="#15803d"/>
+        <text x="164" y="11" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.2" font-weight="900" fill="#15803d">+36%</text>
+        <text x="164" y="35" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11" font-weight="900" fill="#ffffff">17k</text>
       `;
       break;
 
-    case 'ukraine':
-      inner = `
-        <rect width="242" height="60" fill="#e9eef4"/>
-        <rect x="0" y="50" width="242" height="10" fill="#94a3b8"/>
-        <!-- Zaporizhzhia cooling tower silhouette -->
-        <path d="M12 50 Q16 32 14 16 L36 16 Q34 32 38 50 Z" fill="#cbd5e1" stroke="#475569" stroke-width="1.3"/>
-        <rect x="42" y="32" width="16" height="18" fill="#dbe3ec" stroke="#475569" stroke-width="1.1"/>
-        <!-- Power grid pylon + severed line + outage lightning -->
-        <path d="M68 50 L78 14 L88 50 M64 25 L92 25 M67 36 L89 36" fill="none" stroke="#334155" stroke-width="2.1"/>
-        <path d="M92 25 Q110 34 128 25" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,2"/>
-        <polygon points="113,11 103,28 113,28 106,45 124,24 114,24" fill="#dc2626"/>
-        <!-- Clear regions callout -->
-        <rect x="136" y="9" width="96" height="39" rx="4" fill="#ffffff" stroke="#244c75" stroke-width="1.4"/>
-        <text x="184" y="27" text-anchor="middle" font-family="'C059', Georgia, serif" font-size="15.5" font-weight="900" fill="#991b1b">5 REGIONS</text>
-        <text x="184" y="40" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.0" font-weight="800" fill="#244c75">5 KILLED · DIESEL</text>
+    case 'bogor':
+      scene = `
+        <rect width="192" height="56" fill="#dde7f0"/>
+        <path d="M22 4 L18 14 M48 4 L44 14 M74 4 L70 14 M100 4 L96 14" stroke="#2563eb" stroke-width="1.8"/>
+        <rect x="0" y="19" width="192" height="37" fill="#7c5d3d"/>
+        <rect x="0" y="16" width="192" height="5" fill="#4d7c0f"/>
+        <rect x="30" y="19" width="22" height="37" fill="#1d4ed8"/>
+        <rect x="86" y="19" width="22" height="37" fill="#1d4ed8"/>
+        <rect x="30" y="34" width="78" height="14" fill="#2563eb"/>
+        <text x="184" y="32" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="11.5" font-weight="900" fill="#fef08a">17 TRAPPED</text>
+        <text x="184" y="45" text-anchor="end" font-family="'Noto Sans', sans-serif" font-size="9.2" font-weight="800" fill="#e2e8f0">100m SHAFTS</text>
+      `;
+      break;
+
+    case 'gaza':
+      scene = `
+        <rect width="192" height="56" fill="#ebe3d5"/>
+        <rect x="0" y="45" width="192" height="11" fill="#3b6e94"/>
+        <rect x="14" y="25" width="20" height="20" fill="#cbd5e1" stroke="#64748b" stroke-width="1"/>
+        <rect x="38" y="19" width="24" height="26" fill="#d6d3d1" stroke="#64748b" stroke-width="1"/>
+        <rect x="128" y="22" width="24" height="23" fill="#d6d3d1" stroke="#64748b" stroke-width="1"/>
+        <rect x="156" y="28" width="22" height="17" fill="#cbd5e1" stroke="#64748b" stroke-width="1"/>
+        <circle cx="94" cy="20" r="14" fill="#475569" opacity="0.72"/>
+        <circle cx="106" cy="12" r="11" fill="#64748b" opacity="0.62"/>
+        <polygon points="84,45 94,25 106,45" fill="#ea580c"/>
+        <polygon points="89,45 95,32 101,45" fill="#facc15"/>
+      `;
+      break;
+
+    case 'ramaphosa':
+      scene = `
+        <rect width="192" height="56" fill="#f2ece0"/>
+        <!-- High Court facade & columns sitting cleanly above pill -->
+        <polygon points="14,16 68,4 122,16" fill="#8b6b42"/>
+        <rect x="20" y="16" width="96" height="18" fill="#ffffff" stroke="#8b6b42" stroke-width="1.2"/>
+        <path d="M35 16 V34 M52 16 V34 M68 16 V34 M84 16 V34 M101 16 V34" stroke="#c8b392" stroke-width="3"/>
+        <!-- Bold VOIDED stamp on right -->
+        <rect x="122" y="9" width="62" height="24" rx="3" fill="#15803d" stroke="#ffffff" stroke-width="1.3"/>
+        <text x="153" y="25" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="10.8" font-weight="900" fill="#ffffff">VOIDED</text>
+      `;
+      break;
+
+    case 'netanyahu':
+      scene = `
+        <rect width="192" height="56" fill="#ede9df"/>
+        <!-- 3 case folders: 1000, 2000, 4000 -->
+        <rect x="20" y="12" width="44" height="28" rx="2" fill="#cbd5e1" stroke="#475569" stroke-width="1.2"/>
+        <text x="42" y="29" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="10" font-weight="900" fill="#334155">1000</text>
+        <rect x="74" y="12" width="44" height="28" rx="2" fill="#cbd5e1" stroke="#475569" stroke-width="1.2"/>
+        <text x="96" y="29" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="10" font-weight="900" fill="#334155">2000</text>
+        <rect x="128" y="8" width="52" height="32" rx="2" fill="#991b1b" stroke="#ffffff" stroke-width="1.4"/>
+        <text x="154" y="23" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="11" font-weight="900" fill="#ffffff">4000</text>
+        <text x="154" y="34" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="7.8" font-weight="900" fill="#fef08a">DROP?</text>
+      `;
+      break;
+
+    case 'cairo':
+      scene = `
+        <rect width="192" height="56" fill="#2d1f1b"/>
+        <!-- Ring road + tanker truck engulfed in bright flames -->
+        <rect x="0" y="42" width="192" height="14" fill="#475569"/>
+        <line x1="8" y1="49" x2="184" y2="49" stroke="#f8fafc" stroke-width="1.3" stroke-dasharray="10,7"/>
+        <rect x="24" y="28" width="60" height="13" rx="5" fill="#dc2626" stroke="#fca5a5" stroke-width="1.1"/>
+        <rect x="84" y="31" width="16" height="10" rx="2" fill="#94a3b8"/>
+        <path d="M98 42 Q112 4 128 32 Q142 6 156 34 Q168 12 180 42 Z" fill="#f97316"/>
+        <path d="M108 42 Q122 16 136 42 Q150 18 166 42 Z" fill="#fef08a"/>
       `;
       break;
   }
 
-  return `<svg viewBox="0 0 242 60" width="242" height="60" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+  // Clean bottom-left number circle + high-contrast stat pill (crisp at 300px, never muddy)
+  const pillW = Math.max(46, Math.min(118, pill.length * 6.4 + 12));
+  const badgeOverlay = `
+    <circle cx="13" cy="43" r="9.2" fill="${regionColor}" stroke="#ffffff" stroke-width="1.3"/>
+    <text x="13" y="46.4" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="9.5" font-weight="900" fill="#ffffff">${num}</text>
+    <rect x="25" y="35" width="${pillW}" height="15.5" rx="2.5" fill="#0f172a" opacity="0.90"/>
+    <text x="${25 + pillW / 2}" y="45.6" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="8.6" font-weight="900" fill="#ffffff">${pill}</text>
+  `;
+
+  return `<svg viewBox="0 0 192 56" width="192" height="56" xmlns="http://www.w3.org/2000/svg">${scene}${badgeOverlay}</svg>`;
 }
 
 export function renderWorldMap(leads, secondaries, briefs, regionColorMap) {
-  // Crisp editorial world map (262x124) with 11 collision-free pins + brief dots
+  // Clean editorial world map (262x128) with 13 collision-free pins + brief dots
   const continents = `
-    <path d="M14,20 L28,14 L50,13 L72,16 L82,23 L77,30 L83,36 L74,45 L67,53 L58,56 L54,63 L49,64 L44,56 L37,49 L31,40 L20,33 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M84,8 L104,8 L107,16 L97,22 L87,18 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M62,60 L71,60 L72,63 L63,63 Z" fill="#dbd3c4"/>
-    <path d="M62,67 L74,66 L86,74 L97,83 L95,94 L86,104 L78,114 L71,120 L67,114 L67,99 L62,84 L58,75 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M116,28 L121,27 L122,34 L117,35 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.6"/>
-    <path d="M126,14 L140,13 L147,19 L141,26 L155,22 L161,30 L156,40 L145,44 L138,46 L131,41 L123,44 L117,43 L118,36 L124,33 L127,24 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M115,50 L130,47 L144,50 L152,60 L159,70 L156,82 L148,99 L140,111 L133,108 L129,90 L125,76 L114,69 L111,59 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M156,92 L160,90 L159,101 L155,101 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.5"/>
-    <path d="M155,18 L185,14 L218,16 L242,24 L239,35 L228,40 L225,50 L218,60 L207,67 L200,73 L194,68 L187,62 L181,70 L175,63 L167,58 L158,67 L150,64 L147,53 L154,46 L158,34 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M231,40 L236,39 L234,49 L229,50 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.6"/>
-    <path d="M200,79 L219,83 L218,87 L199,83 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.6"/>
-    <path d="M220,66 L225,67 L224,75 L219,74 Z" fill="#dbd3c4"/>
-    <path d="M206,94 L224,91 L236,98 L236,110 L224,114 L209,110 L204,102 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.7"/>
-    <path d="M244,109 L250,106 L251,116 L245,118 Z" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.6"/>
-    <circle cx="244" cy="87" r="3" fill="#dbd3c4" stroke="#bfb5a3" stroke-width="0.5"/>
+    <path d="M12,20 L28,14 L50,13 L72,16 L82,23 L77,30 L83,36 L74,45 L67,53 L58,56 L54,63 L49,64 L44,56 L37,49 L31,40 L20,33 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M84,8 L104,8 L107,16 L97,22 L87,18 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M62,60 L71,60 L72,63 L63,63 Z" fill="#dad2c3"/>
+    <path d="M62,67 L74,66 L86,74 L97,83 L95,94 L86,104 L78,114 L71,121 L67,114 L67,99 L62,84 L58,75 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M115,27 L120,26 L121,33 L116,34 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.6"/>
+    <path d="M126,14 L140,13 L147,19 L141,26 L155,22 L161,30 L156,40 L145,44 L138,46 L131,41 L123,44 L117,43 L118,36 L124,33 L127,24 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M115,50 L130,47 L144,50 L152,60 L159,70 L156,82 L148,100 L140,113 L133,110 L129,91 L125,76 L114,69 L111,59 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M156,92 L160,90 L159,101 L155,101 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.5"/>
+    <path d="M155,18 L185,14 L218,16 L242,24 L239,35 L228,40 L225,50 L218,60 L207,67 L200,73 L194,68 L187,62 L181,70 L175,63 L167,58 L158,67 L150,64 L147,53 L154,46 L158,34 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M231,40 L236,39 L234,49 L229,50 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.6"/>
+    <path d="M200,79 L219,83 L218,87 L199,83 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.6"/>
+    <path d="M220,66 L225,67 L224,75 L219,74 Z" fill="#dad2c3"/>
+    <path d="M206,94 L224,91 L236,98 L236,110 L224,114 L209,110 L204,102 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.7"/>
+    <path d="M244,109 L250,106 L251,116 L245,118 Z" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.6"/>
+    <circle cx="243" cy="84" r="3" fill="#dad2c3" stroke="#bfb5a3" stroke-width="0.5"/>
   `;
 
   const dots = briefs
     .filter((b) => b.dot)
     .map(
       (b) =>
-        `<circle cx="${b.dot.x}" cy="${b.dot.y}" r="2.2" fill="${regionColorMap[b.region]}" opacity="0.62" stroke="#fbf8f2" stroke-width="0.5"/>`
+        `<circle cx="${b.dot.x}" cy="${b.dot.y}" r="2.2" fill="${regionColorMap[b.region]}" opacity="0.68" stroke="#fbf8f2" stroke-width="0.5"/>`
     )
     .join('');
 
@@ -337,15 +330,15 @@ export function renderWorldMap(leads, secondaries, briefs, regionColorMap) {
     .map((s) => {
       const col = regionColorMap[s.region];
       return `<g class="map-pin" data-num="${s.num}" data-x="${s.map.x}" data-y="${s.map.y}">
-        <circle cx="${s.map.x}" cy="${s.map.y}" r="7.2" fill="${col}" stroke="#ffffff" stroke-width="1.3"/>
-        <text x="${s.map.x}" y="${s.map.y + 3.0}" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="8.2" font-weight="800" fill="#ffffff">${s.num}</text>
+        <circle cx="${s.map.x}" cy="${s.map.y}" r="7.0" fill="${col}" stroke="#ffffff" stroke-width="1.2"/>
+        <text x="${s.map.x}" y="${s.map.y + 2.9}" text-anchor="middle" font-family="'Noto Sans', sans-serif" font-size="7.8" font-weight="900" fill="#ffffff">${s.num}</text>
       </g>`;
     })
     .join('');
 
-  return `<svg id="world-map" viewBox="0 0 262 124" width="262" height="124" xmlns="http://www.w3.org/2000/svg">
-    <rect width="262" height="124" rx="3" fill="#edf2f6" stroke="#d9d1c3" stroke-width="1"/>
-    <line x1="0" y1="62" x2="262" y2="62" stroke="#d5dfe8" stroke-width="0.7" stroke-dasharray="2,3"/>
+  return `<svg id="world-map" viewBox="0 0 262 128" width="262" height="128" xmlns="http://www.w3.org/2000/svg">
+    <rect width="262" height="128" rx="3" fill="#eef2f6" stroke="#d9d1c3" stroke-width="1"/>
+    <line x1="0" y1="64" x2="262" y2="64" stroke="#d5dfe8" stroke-width="0.7" stroke-dasharray="2,3"/>
     ${continents}
     ${dots}
     ${pins}
